@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.min.js"></script>
+    <title>Date Timezone</title>
+    <div id="tokyo"></div>
+    <div id="local"></div>
+  </head>
+  <body>
+    <script>
+      let tokyoTime = moment()
+        .tz("Asia/Tokyo")
+        .format("dddd, MMMM	D, YYYY h:m A");
+
+      let tokyoElement = document.querySelector("#tokyo");
+
+      tokyoElement.innerHTML = tokyoTime;
+
+      let localTimezone = moment.tz.guess();
+      let localElement = document.querySelector("#local");
+      localElement.innerHTML = `Your current time zone is ${localTimezone} and the current time is ${moment().format(
+        "h:m A"
+      )}`;
+    </script>
+  </body>
+</html>
